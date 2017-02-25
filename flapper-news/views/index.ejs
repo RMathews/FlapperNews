@@ -5,6 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
     <script src="/javascripts/angularApp.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <style> .glyphicon-thumbs-up {
         cursor: pointer
     } </style>
@@ -32,8 +33,8 @@
           <span ng-hide="post.link">
             {{post.title}}
           </span>
-            <span>
-                <a href="#/posts/{{$index}}">Comments</a>
+            <span class="comment">
+                <a href="#/posts/{{post._id}}">Comments</a>
             </span>
         </span>
     </div>

@@ -3,6 +3,7 @@
  */
 
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 var CommentSchema = new mongoose.Schema({
     author: String,
@@ -10,5 +11,10 @@ var CommentSchema = new mongoose.Schema({
     upvotes: {type: Number, default: 0},
     post: {type: mongoose.Schema.Types.ObjectId, ref: 'Post'}
 });
+
+CommentSchema.methods.upvote = function(callback){
+    this.upvotes += 1;
+    this.save(callback);
+};
 
 mongoose.model('Comment', CommentSchema);
